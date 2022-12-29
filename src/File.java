@@ -27,8 +27,7 @@ public class File {
     }
 
     public String toString() {
-        return "File Name: " + this.name + "\n" +
-                "File Size: " + this.size;
+        return this.name  + "  " + this.size;
     }
 
 }
