@@ -7,15 +7,14 @@ public class Main {
         Directory root = new Directory("root");
         try {
             getInput(root);
-            //pass in root - loop through root - for each directory add total size - return value of all that are less than 100k
+            System.out.println(getDirectories(root));
         } catch (Exception e){
             System.out.println(e);
         }
-
     }
 
     public static void getInput(Directory root) throws FileNotFoundException {
-        FileInputStream fis = new FileInputStream("test.txt");
+        FileInputStream fis = new FileInputStream("input.txt");
         Scanner scan = new Scanner(fis);
         scan.nextLine();
         Directory workingDirectory = root;
@@ -38,9 +37,8 @@ public class Main {
                     workingDirectory.putInDirectory(file);
                 }
             }
-
         }
-        treePrint(root, 0);
+        //treePrint(root, 0);
         scan.close();
     }
 
@@ -58,6 +56,18 @@ public class Main {
         for (Directory d: node.getDirectories().values()) {
             treePrint(d, tabs + 1);
         }
+    }
+
+    public static int getDirectories(Directory directory) {
+        int sumOfDirectories = 0;
+        int passedInSize = directory.calculateSize();
+        if (passedInSize < 100001) {
+            sumOfDirectories += directory.calculateSize();
+        }
+            for (Directory d : directory.getDirectories().values()) {
+                sumOfDirectories += getDirectories(d);
+            }
+        return sumOfDirectories;
     }
 
 }

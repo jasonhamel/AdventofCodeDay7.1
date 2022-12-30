@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967c402f-0d61-4ef2-b756-33b284cfbd3f" name="Changes" comment="Progress after first session. Need to implement more logic for most other commands still. Then make methods to total sizes in folders">
+    <list default="true" id="967c402f-0d61-4ef2-b756-33b284cfbd3f" name="Changes" comment="Child directories don't add to their parent's total size.">
+      <change afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Directory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Directory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/File.java" afterDir="false" />
@@ -56,7 +57,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672262173967</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Child directories don't add to their parent's total size.">
+      <created>1672279126050</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672279126050</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -73,6 +81,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Progress after first session. Need to implement more logic for most other commands still. Then make methods to total sizes in folders" />
-    <option name="LAST_COMMIT_MESSAGE" value="Progress after first session. Need to implement more logic for most other commands still. Then make methods to total sizes in folders" />
+    <MESSAGE value="Child directories don't add to their parent's total size." />
+    <option name="LAST_COMMIT_MESSAGE" value="Child directories don't add to their parent's total size." />
   </component>
 </project>

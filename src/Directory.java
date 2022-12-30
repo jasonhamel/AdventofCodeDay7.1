@@ -6,12 +6,14 @@ public class Directory {
     private HashMap<String, File> files;
     private HashMap<String, Directory> directories;
     private Directory parent;
+    private int size;
 
     public Directory(String name) {
         this.name = name;
         this.files = new HashMap<>();
         this.directories = new HashMap<>();
         this.parent = null;
+        this.size = 0;
     }
 
     public Directory(String name, Directory parent) {
@@ -36,6 +38,9 @@ public class Directory {
         //TODO
         return parent;
     }
+    public int getSize() {
+        return this.size;
+    }
     public void setName(String name) {
         this.name = name;
     }
@@ -48,27 +53,20 @@ public class Directory {
     public void setParent(Directory parent) {
         this.parent = parent;
     }
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     public String toString() {
         String string = "";
 
-        string += "Name: " + this.name + "\n" +
-                "Parent: " + this.parent + "\n" +
-                "Contents: " + "\n\t" ;
-        if (directories.isEmpty()) {
-            string += "EMPTY";
-        }
-        for (String key : this.directories.keySet()) {
-            string += key + "\n\t";
-        }
-        for (String key: this.files.keySet()) {
-            string += key;
-        }
+        string += this.size;
         return string;
     }
 
     public void putInDirectory(File file) {
         files.put(file.getName(), file);
+        this.size += file.getSize();
     }
 
     public void putInDirectory(Directory child) {
@@ -81,9 +79,11 @@ public class Directory {
 
     public int calculateSize() {
         int sizeOfDirectory = 0;
-
         for (File f: this.files.values()) {
             sizeOfDirectory += f.getSize();
+        }
+        for (Directory d : this.directories.values()) {
+            sizeOfDirectory += d.calculateSize();
         }
         return sizeOfDirectory;
     }
